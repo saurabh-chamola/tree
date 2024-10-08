@@ -4,14 +4,14 @@ import categoryModel from "../models/category.js";
 // @@DESC- creating new category and adding child categories
 // @@ROUTE- api/v1/category (POST)
 export const newCategory = asyncHandler(async (req, res, next) => {
-  const { categoryName, parentCategory } = req.body; // Changed from "category" to "parentCategory"
-
+  const { categoryName, parentCategory } = req?.body; 
 
   const newCategory = new categoryModel({ categoryName:categoryName, parentCategory: parentCategory ? parentCategory : null });
+
   await newCategory.save();
 
-  if (parentCategory) { // Updated this condition
-    await categoryModel.findOneAndUpdate({ _id: parentCategory }, { $push: { childCategories: newCategory._id } }); // Changed "subCategories" to "childCategories"
+  if (parentCategory) { 
+    await categoryModel.findOneAndUpdate({ _id: parentCategory }, { $push: { childCategories: newCategory._id } });
   }
 
   res.status(201).json({ status: true, message: "Created successfully!!" });
@@ -27,7 +27,7 @@ export const getCategories = asyncHandler(async (req, res, next) => {
 
   for (let i = 0; i < categories.length; i++) {
     const category = categories[i];
-    rootCategoryData[category._id] = { ...category._doc, childCategories: [] };
+    rootCategoryData[category._id] = { ...category?._doc, childCategories: [] };
   }
 
   const finalCategoryList = [];
