@@ -9,21 +9,21 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-//@@DESC--Middleware
+//@@DESC--Middleware section
 app.use(express.json({ limit: "16kb" }));
 
-// @@DESC--Database connection and server 
+// @@DESC--Database connection section
 dbConnect()
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server is listening on port ${PORT}`);
+      console.log(`Server is listening to port ${PORT}`);
     });
   })
   .catch((e) => {
     console.error("Database connection failed:", e.message);
   });
 
-//@@DESC--Routes
+//@@DESC--Routes section
 app.use("/api/v1/category", categoryRoutes);
 
 app.get("/", (req, res) => {
