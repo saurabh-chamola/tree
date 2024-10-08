@@ -2,6 +2,28 @@
 TASK: CREATE TREE-BASED CATEGORY APIs (POST AND GET ONLY)
 
 ------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+                                 EXAMPLE-1
+
+
+
+in this example, we start with a root or parent  category called Cars. There are three child categories/nodes under Cars: Petroleum Cars, Hybrid Cars, and Electric Cars. Each of these categories can have even multiple categories.
+
+For example, Petroleum Cars node has two smaller categories: Gasoline-Powered Cars and Diesel-Powered Cars. Hybrid Cars has  categories like Fuel Cell Electric Vehicles (FCEV) and Battery Electric Vehicles (BEV). You can keep adding  categories to any main category.              
+
+
+
+
+
+
+                                    EXAMPLE-2
+
+
 I have created a tree-based category API. First I will create a root category, and the next time I want to add a category, I can associate it as a child category with the previous parent category.
 
 Step 1
